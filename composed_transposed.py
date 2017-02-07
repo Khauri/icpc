@@ -15,10 +15,9 @@ def main():
             noteStack.append(item)
 
 def transpose(key, amount):
-    notemap = ["A", "A#/Bb", "B/Cb", "C/B#", "C#/Db", "D", "D#/Eb", "E/Fb", "F/E#", "F#/Gb", "G", "G#/Ab"]
+    notemap = [["A"], ["A#","Bb"], ["B","Cb"], ["C","B#"], ["C#","Db"], ["D"], ["D#","Eb"], ["E","Fb"], ["F","E#"], ["F#","Gb"], ["G"], ["G#","Ab"]]
     for i in range(len(notemap)):
-        if key in notemap[i].split("/"):
-            print(notemap[(i+amount)%len(notemap)].split("/")[0], end=" ")
-
+        if key in notemap[i]:
+            print(notemap[(i+amount)%len(notemap)][0], end=" ")
 
 main()
