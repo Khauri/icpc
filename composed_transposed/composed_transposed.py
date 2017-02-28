@@ -1,12 +1,12 @@
 #!/usr/bin/env python3
-
+import fileinput
 #V2 - Now with much less cheese
-def main( filename ):
+def main():
     queue = []
-    with open( filename ) as input:
-        line = input.readline()
-        expectInt = False
-        while line != "***":
+    expectInt = False
+    for line in fileinput.input():
+        print(fileinput.isstdin())
+        if line != "***":
             if expectInt == True: # if int discovered output transposition
                 transposeAmnt = int(line)
                 while len(queue) > 0:
@@ -16,8 +16,7 @@ def main( filename ):
             else:
                 queue = line.split()
             # if we know every 2nd line is a number, then we can alternate checking and not checking for an integer
-            expectInt = not expectInt
-            line = input.readline()
+        expectInt = not expectInt
 
 def transpose(note, amount, preserve = True):
     notemap = [["A"], ["A#","Bb"], ["B","Cb"], ["C","B#"], ["C#","Db"], ["D"], ["D#","Eb"], ["E","Fb"], ["F","E#"], ["F#","Gb"], ["G"], ["G#","Ab"]]
@@ -27,4 +26,4 @@ def transpose(note, amount, preserve = True):
             return newNote[1] if "b" in note and len(newNote) > 1 and preserve is True else newNote[0]
 
 if __name__ == "__main__":
-    main("data.txt")
+    main()
