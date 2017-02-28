@@ -5,7 +5,6 @@ def main():
     queue = []
     expectInt = False
     for line in fileinput.input():
-        print(fileinput.isstdin())
         if line != "***":
             if expectInt == True: # if int discovered output transposition
                 transposeAmnt = int(line)
@@ -15,6 +14,8 @@ def main():
                 print()
             else:
                 queue = line.split()
+        else:
+            exit()
             # if we know every 2nd line is a number, then we can alternate checking and not checking for an integer
         expectInt = not expectInt
 
