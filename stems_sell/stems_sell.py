@@ -1,8 +1,17 @@
 #!/usr/bin/env python3
 import fileinput
+import re
+
 
 def match(p, s):
-    print(p, '\n', s, '\n') 
+    rules = { 'C':'[^aeiou]', 'V':'[aeiou]', '*':r'\w+'}
+    m = re.compile(r'([CV]\d)')
+    #*C2ies -> \w+(^aeiou){2,2}ies
+    #print(p, '\n', s, '\n')
+    print("before: ", s)
+    for pattern in p:
+        pattern[0] = pattern[0].replace("*", rules["*"])
+        x = re.compile(pattern[0])
 
 def main():
     lineCount = 0
@@ -17,10 +26,13 @@ def main():
                 patterns = []
                 sentence = ""
         elif expectPattern:
+            line = line.strip().split(" => ")
             patterns.append(line)
         else:
             sentence += line
 
 
 
-main()
+
+if __name__ == "__main__":
+    main()
