@@ -1,4 +1,5 @@
 *ed => 1
+*C2ow => 1
 
 The quick brown foxes jumped over
 the lazy yellow dogs.
