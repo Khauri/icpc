@@ -1,5 +1,5 @@
 *ed => 1
-*C2ow => 1
+*C2ow => 12p
 
 The quick brown foxes jumped over
 the lazy yellow dogs.
@@ -9,5 +9,5 @@ the lazy yellow dogs.
 *s => 1
 
 The quick brown foxes jumped over
-the lazy yellow dogs.
+  the lazy yellow dogs.
 ***
